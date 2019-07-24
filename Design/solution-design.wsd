@@ -1,0 +1,36 @@
+@startuml solution
+
+package src/actions {
+  class questionsActions
+  class usersActions
+  class authedUserActions
+  class sharedActions
+}
+
+package src/reducers {
+class questionsReducer
+  class usersReducer
+  class authedUserReducer
+  class index
+}
+
+package src/middleware {
+
+}
+
+package src/components {
+  class Leaderboard 
+  class Login
+  class Nav
+  class NewQuestion
+  class Poll
+  class Question
+  class QuestionList
+  class Score
+}
+
+package src/utils {
+  class _DATA
+}
+
+@enduml
