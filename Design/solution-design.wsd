@@ -1,25 +1,45 @@
 @startuml solution
 
-package src/actions {
-  class questionsActions
-  class usersActions
-  class authedUserActions
-  class sharedActions
+package src.actions {
+  class questionsActions {
+    - addQuestion({question})
+    - answerQuestion({ authedUser, qid, answer })
+  }
+  class usersActions{
+    - getUsers()
+  }
+  class authedUserActions{
+    - setAuthedUser(id)
+  }
+  class sharedActions{
+    - handleInitialData()
+  }
 }
 
-package src/reducers {
-class questionsReducer
-  class usersReducer
-  class authedUserReducer
-  class index
+package src.reducers {
+  class questionsReducer {
+    - questions(state = {}, action)
+  }
+  class usersReducer {
+    - users(state = {}, action)
+  }
+  class authedUserReducer {
+   - authedUser(state = {}, action)
+  }
+  class src.reducers.index_js{
+    - combineReducers()
+  }
 }
 
-package src/middleware {
-
+package src.middleware {
+  class src.middleware.logger
+  class src.middleware.index_js {
+    - applyMiddleware()
+  }
 }
 
-package src/components {
-  class Leaderboard 
+
+package src.components {
   class Login
   class Nav
   class NewQuestion
@@ -27,10 +47,60 @@ package src/components {
   class Question
   class QuestionList
   class Score
+  class QuestionPage
+  class LeaderboardPage
 }
 
 package src/utils {
   class _DATA
+  class api_js
 }
+
+package src {
+  class App
+  class src.index_js
+}
+
+App *--> Nav
+App *--> Login
+App *--> QuestionList
+
+QuestionList *--> Question
+QuestionPage *--> Question
+QuestionPage *--> Poll
+LeaderboardPage *--> Score
+
+'.Actions
+Login o--> authedUserActions
+Login o--> usersActions 
+QuestionList o--> sharedActions
+Question o--> questionsActions
+LeaderboardPage o--> questionsActions
+NewQuestion o--> questionsActions
+
+sharedActions o--> authedUserActions
+sharedActions o--> usersActions
+sharedActions o--> questionsActions
+api_js ..> _DATA
+sharedActions ..> api_js
+questionsActions ..> api_js
+
+
+'.reducers
+questionsActions ..> questionsReducer
+authedUserActions ..> authedUserReducer
+usersActions ..> usersReducer
+src.reducers.index_js ..> usersReducer
+src.reducers.index_js ..> questionsReducer
+src.reducers.index_js ..> authedUserReducer
+
+'.middleware
+src.middleware.index_js o--> src.middleware.logger
+
+src.index_js ..> src.middleware.index_js
+src.index_js ..> src.reducers.index_js
+
+
+
 
 @enduml
