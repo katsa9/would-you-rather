@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Button from 'react-bootstrap/Button';
 
 class QuestionList extends Component {
 
@@ -10,28 +12,34 @@ class QuestionList extends Component {
     this.props.dispatch(handleInitialData())
   }
 
-  render() {
+  render () {
     return (
       <Container className="bg-primary container">
-        <h3 className='center'>Question List</h3>
         <Row className="justify-content-md-center">
-        <ul>
-          {this.props.questionIds.map((id) => (
-            <li key={id}>
-              {id}
-            </li>
-          ))}
-        </ul>
+          <ButtonGroup aria-label="Basic example">
+            <Button variant="secondary">Unanswered Questions</Button>
+            <Button variant="secondary">Answered Questions</Button>
+          </ButtonGroup>
+        </Row>
+        
+        <Row className="justify-content-md-center">
+          <ul>
+            {this.props.questionIds.map((id) => (
+              <li key={id}>
+                {id}
+              </li>
+            ))}
+          </ul>
         </Row>
       </Container>
     )
   }
 }
 
-function mapStateToProps({questions}) {
+function mapStateToProps ({ questions }) {
   return {
     questionIds: Object.keys(questions)
-        .sort((a,b) => questions[b].timestamp - questions[a].timestamp)
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
   }
 }
 

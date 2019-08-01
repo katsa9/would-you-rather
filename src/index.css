@@ -21,12 +21,12 @@ a {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 10px;
+
+  margin-top: 10px;
+  /* padding: 10px; */
   box-shadow: 7px 7px 13px 0 rgba(161,161,161,0.50);
   border-radius: 9px;
 }
-
-.page-container
 
 .btn {
   background: #FFFFFF;
