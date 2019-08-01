@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 class QuestionList extends Component {
 
@@ -10,8 +12,9 @@ class QuestionList extends Component {
 
   render() {
     return (
-      <div>
+      <Container className="bg-primary container">
         <h3 className='center'>Question List</h3>
+        <Row className="justify-content-md-center">
         <ul>
           {this.props.questionIds.map((id) => (
             <li key={id}>
@@ -19,7 +22,8 @@ class QuestionList extends Component {
             </li>
           ))}
         </ul>
-      </div>
+        </Row>
+      </Container>
     )
   }
 }

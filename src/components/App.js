@@ -17,7 +17,7 @@ class App extends Component {
     return (
        <Fragment>
        <LoadingBar />
-      <div className="container">
+      <div>
         <QuestionList />
       </div>
       </Fragment>
