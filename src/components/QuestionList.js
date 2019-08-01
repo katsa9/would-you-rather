@@ -15,7 +15,7 @@ class QuestionList extends Component {
         <ul>
           {this.props.questionIds.map((id) => (
             <li key={id}>
-              id
+              {id}
             </li>
           ))}
         </ul>
