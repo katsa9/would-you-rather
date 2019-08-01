@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
 
 class QuestionList extends Component {
 
@@ -15,13 +13,6 @@ class QuestionList extends Component {
   render () {
     return (
       <Container className="bg-primary container">
-        <Row className="justify-content-md-center">
-          <ButtonGroup aria-label="Basic example">
-            <Button variant="secondary">Unanswered Questions</Button>
-            <Button variant="secondary">Answered Questions</Button>
-          </ButtonGroup>
-        </Row>
-        
         <Row className="justify-content-md-center">
           <ul>
             {this.props.questionIds.map((id) => (
