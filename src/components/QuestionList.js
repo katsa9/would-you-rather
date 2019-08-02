@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+import Question from './Question'
 
 class QuestionList extends Component {
 
@@ -12,13 +13,14 @@ class QuestionList extends Component {
 
   render () {
     return (
-      <Container className="bg-primary container">
+      
+      <Container>
         <Row className="justify-content-md-center">
           <ul>
             {this.props.questionIds.map((id) => (
               <li key={id}>
-                {id}
-              </li>
+              <Question id={id}/>
+            </li>
             ))}
           </ul>
         </Row>
