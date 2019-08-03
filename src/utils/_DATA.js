@@ -2,7 +2,7 @@ let users = {
   hermionegranger: {
     id: 'hermionegranger',
     name: 'Hermione Granger',
-    avatarURL: './images/hermione.jpg',
+    avatarURL: '/images/hermione.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   harrypotter: {
     id: 'harrypotter',
     name: 'Harry Potter',
-    avatarURL: './images/harry.jpg',
+    avatarURL: '/images/harry.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -23,7 +23,7 @@ let users = {
   },
   ronweasley: {
     id: 'ronweasley',
-    name: 'John Doe',
+    name: 'Ron Weasley',
     avatarURL: './images/ron.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',

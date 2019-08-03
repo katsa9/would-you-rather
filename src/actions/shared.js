@@ -1,15 +1,16 @@
-//for setting authed user and loading questions
-import { getQuestions } from '../utils/api'
-import { receiveQuestions } from '../actions/questions'
+import { getInitialData } from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
+import { receiveQuestions } from './questions'
+import { receiveUsers } from './users'
 // import { setAuthedUser } from '../actions/authedUser'
 
 //thunk action creator
 export function handleInitialData() {
   return (dispatch) => {
     dispatch(showLoading())
-    return getQuestions()
-    .then((questions) => {
+    return getInitialData()
+    .then(({questions, users}) => {
+      dispatch(receiveUsers(users))
       dispatch(receiveQuestions(questions))
       //dispatch(setAuthedUser(??))
       dispatch(hideLoading())

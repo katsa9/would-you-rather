@@ -1,21 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
 import Question from './Question'
 
 class QuestionList extends Component {
 
-  componentDidMount () {
-    this.props.dispatch(handleInitialData())
-  }
-
   render () {
     return (
       
-      <Container>
-        <Row className="justify-content-md-center">
+      <div className="container">
           <ul>
             {this.props.questionIds.map((id) => (
               <li key={id}>
@@ -23,8 +16,7 @@ class QuestionList extends Component {
             </li>
             ))}
           </ul>
-        </Row>
-      </Container>
+          </div>
     )
   }
 }
