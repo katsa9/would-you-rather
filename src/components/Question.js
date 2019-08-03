@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 class Question extends Component {
   render () {
     const { question, author, avatar } = this.props
-    console.log(avatar)
     return (
       <div className="container">
         <h3>{author} asks:</h3>
@@ -26,6 +25,10 @@ class Question extends Component {
           <div>
             {question.optionTwo.text}
           </div>
+        </div>
+        <div>
+          <button onClick={this.goToPoll}
+          >View Poll</button>
         </div>
       </div>
 
