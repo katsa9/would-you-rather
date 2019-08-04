@@ -5,6 +5,7 @@ import { handleInitialData } from '../actions/shared'
 
 import LoadingBar from 'react-redux-loading'
 import QuestionList from './QuestionList'
+import Login from './Login'
 import TopNav from './Nav'
 
 //set authed user when the login button is clicked
@@ -27,7 +28,8 @@ class App extends Component {
               <button type="button" className="btn btn-secondary">Answered Questions</button>
             </div>
             </div>
-            <QuestionList />
+            <Login />
+            {/* <QuestionList /> */}
           </div>
       </Fragment>
     );

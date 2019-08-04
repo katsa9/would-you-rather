@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Question extends Component {
+
+  gotToPoll = (e, id) => {
+    //navigate to question page with id
+  }
+
   render () {
     const { question, author, avatar } = this.props
     return (
