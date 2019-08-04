@@ -22,18 +22,25 @@ class App extends Component {
         <LoadingBar />
         <div>
           <TopNav />
-          <div className="center">
-            <div className="col-md-5 btn-group text-center" role="group">
-              <button type="button" className="btn btn-secondary">Unanswered Questions</button>
-              <button type="button" className="btn btn-secondary">Answered Questions</button>
+          {this.props.authedUser
+          ? <div className="center">
+              <div className="col-md-5 btn-group text-center" role="group">
+                <button type="button" className="btn btn-secondary">Unanswered Questions</button>
+                <button type="button" className="btn btn-secondary">Answered Questions</button>
+              </div>
+              <QuestionList />
             </div>
-            </div>
-            <Login />
-            {/* <QuestionList /> */}
-          </div>
+          : <Login />}
+        </div>
       </Fragment>
     );
   }
 }
 
-export default connect()(App)
+function mapStateToProps ({ authedUser }) {
+  return {
+    authedUser
+  }
+}
+
+export default connect(mapStateToProps)(App)
