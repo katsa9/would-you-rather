@@ -17,8 +17,8 @@ class Question extends Component {
             src={avatar}
             alt={`Avatar of ${author}`}
             className="rounded"
-            width="40"
-            height="40"
+            width="100"
+            height="100"
           />
         </div>
         <div className="col-md-8">
