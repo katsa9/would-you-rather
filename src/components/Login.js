@@ -35,11 +35,11 @@ class Login extends Component {
           <h2 className="text-center main-heading my-5">Would you Rather?</h2>
           <img src={cover}
           type="image/svg+xml"
-          className="col-md-6 rounded mx-auto d-block" alt="Image of person deciding"></img>
+          className="col-md-6 col-sm-5 rounded mx-auto d-block" alt="Image of person deciding"></img>
         </div>
         <div className="my-5 text-center">
         <p>Please select a user:</p>
-        <div className="dropdown my-5 text-center" onClick={this.toggleOpen}>
+        <div className="text-center" onClick={this.toggleOpen}>
           <button
             className="dropdown-toggle"
             type="button"
