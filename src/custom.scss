@@ -1,10 +1,64 @@
 //$body-bg: #000;
 $theme-colors: (
   "primary": rgba(74,184,131,0.30),
-  "light": #86E2B6,
+  "light": rgba(152, 211, 183, 0.726),
   "secondary": #58A480,
   "dark": #373A3C 
 );
 
+$body-bg: rgb(255, 255, 255); 
+$body-color: rgb(32, 32, 32); 
+$container-color: theme-color("light");
+$border-radius: 1px; 
+$brand-primary:theme-color("secondary");
+// $brand-success: #11cc11; 
+// $brand-info: cyan; 
+// $brand-warning: #334455; 
+// $brand-danger: #cc1111; 
+$font-family-sans-serif: "Avenir Next", sans-serif;
+$fancy-font: "zapfino";
+
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
+
+.container {
+   padding: 20px; 
+}
+
+.login-container {
+  @extend .container;
+  background-color: theme-color("light");
+  max-width: 700px;
+  margin: 20px auto;
+  /* padding: 10px; */
+  box-shadow: 7px 7px 13px 0 rgba(161,161,161,0.50);
+  border-radius: 9px;
+} 
+
+.btn-primary {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px 0 #4AB883;
+    border-radius: 4px;
+    font-family: AvenirNext-Regular;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    line-height: 21px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-toggle {
+  background: #FFFFFF;
+  border-radius: 4px;
+  font-family: AvenirNext-Regular;
+    font-size: 16px;
+    color: #000000;
+    position: relative;
+    cursor: pointer;
+}
+
+.main-heading {
+  @extend .h1;
+  font-family: zapfino;
+}

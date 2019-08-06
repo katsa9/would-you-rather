@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser';
+import cover from '../images/cover.svg';
 
 class Login extends Component {
   state = {
@@ -23,15 +24,24 @@ class Login extends Component {
 
   render () {
     const { users } = this.props
-    const menuClass = `dropdown-menu${this.state.isOpen ? " show" : ""}`;
+    const menuClass = `dropdown-menu${this.state.isOpen ? "text-center show " : ""}`;
     const { selectedUser } = this.state
     return (
-      <div>
-        <h2 className="center">Welcome to Would you Rather?</h2>
-        <p>Please select a user</p>
-        <div className="dropdown" onClick={this.toggleOpen}>
+      <div className="login-container">
+        <div className="text-center my-5">
+        Welcome to
+        </div>
+        <div className="panel">
+          <h2 className="text-center main-heading my-5">Would you Rather?</h2>
+          <img src={cover}
+          type="image/svg+xml"
+          className="col-md-6 rounded mx-auto d-block" alt="Image of person deciding"></img>
+        </div>
+        <div className="my-5 text-center">
+        <p>Please select a user:</p>
+        <div className="dropdown my-5 text-center" onClick={this.toggleOpen}>
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="dropdown-toggle"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -46,8 +56,10 @@ class Login extends Component {
             ))}
           </div>
         </div>
-        <div>
+        </div>
+        <div className="text-center">
           <button
+              className="btn btn-primary"
             onClick={(e) => this.handleLogin(e)}>
             Login
           </button>
