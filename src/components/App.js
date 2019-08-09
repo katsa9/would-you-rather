@@ -7,6 +7,7 @@ import LoadingBar from 'react-redux-loading'
 import QuestionList from './QuestionList'
 import Login from './Login'
 import TopNav from './Nav'
+import { handleSaveNewQuestion, handleAnswerQuestion } from '../actions/questions';
 
 //set authed user when the login button is clicked
 
@@ -21,7 +22,7 @@ class App extends Component {
       <Fragment>
         <LoadingBar />
         <div>
-          <TopNav />
+          {/* <TopNav />
           {this.props.authedUser
           ? <div className="center">
               <div className="col-md-5 btn-group text-center" role="group">
@@ -30,7 +31,9 @@ class App extends Component {
               </div>
               <QuestionList />
             </div>
-          : <Login />}
+          : <Login />} */}
+
+          <QuestionList />
         </div>
       </Fragment>
     );

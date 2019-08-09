@@ -11,30 +11,38 @@ class Question extends Component {
     const { question, author, avatar } = this.props
     return (
       <div className="container">
-        <h3>{author} asks:</h3>
-        <div className="col-md-4 text-center">
-          <img
-            src={avatar}
-            alt={`Avatar of ${author}`}
-            className="rounded"
-            width="100"
-            height="100"
-          />
-        </div>
-        <div className="col-md-8">
-          <b>Would you rather..</b>
-          <div>
-            {question.optionOne.text}
+        <b>{author} asks:</b>
+        <hr></hr>
+        <div className="container">
+          <div className="row">
+            <div className="avatar-container col-sm-3 col-md-3">
+              <img
+                src={avatar}
+                alt={`Avatar of ${author}`}
+                className="avatar"
+                width="120"
+                height="120"
+              />
+            </div>
+            <div className="col-sm-9 col-md-9">
+              <b className="">Would you rather..</b>
+              <div className="my-2 answer">
+                {question.optionOne.text}
+              </div>
+              <b>OR</b>
+              <div className="my-2 answer">
+                {question.optionTwo.text}
+              </div>
+            </div>
           </div>
-          <b>OR</b>
-          <div>
-            {question.optionTwo.text}
-          </div>
+        <div className="pull-right">
+          <button className="btn btn-primary float-right mt-2"
+          onClick={this.goToPoll}>
+          View Poll
+          </button>
         </div>
-        <div>
-          <button onClick={this.goToPoll}
-          >View Poll</button>
         </div>
+
       </div>
 
     )
@@ -51,8 +59,8 @@ function mapStateToProps ({ questions, users }, { id }) { //second arg is props 
     question: question
       ? question
       : null,
-     avatar: avatar ? avatar : null,
-     author: author ? author : null 
+    avatar: avatar ? avatar : null,
+    author: author ? author : null
   }
 }
 export default connect(mapStateToProps)(Question)

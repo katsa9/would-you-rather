@@ -27,7 +27,7 @@ class Login extends Component {
     const menuClass = `dropdown-menu${this.state.isOpen ? "text-center show " : ""}`;
     const { selectedUser } = this.state
     return (
-      <div className="login-container">
+      <div className="green-container">
         <div className="text-center my-5">
         Welcome to
         </div>

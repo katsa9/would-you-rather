@@ -23,16 +23,25 @@ $fancy-font: "zapfino";
 
 .container {
    padding: 20px; 
+   background-color: white;
+   border-radius: 9px;
+   margin: 20px auto;
+   max-width: 700px;
 }
 
-.login-container {
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+ul {
+  padding-left: 0;
+}
+
+.green-container {
   @extend .container;
   background-color: theme-color("light");
-  max-width: 700px;
-  margin: 20px auto;
-  /* padding: 10px; */
   box-shadow: 7px 7px 13px 0 rgba(161,161,161,0.50);
-  border-radius: 9px;
 } 
 
 .btn-primary {
@@ -65,4 +74,22 @@ $fancy-font: "zapfino";
 .main-heading {
   @extend .h1;
   font-family: zapfino;
+}
+
+.answer {
+  border-radius: 5px;
+  background-color: theme-color("secondary");
+  position: relative;
+  padding: .5em;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  min-height: 100%;  
+    min-height: 100%; 
+}
+.avatar {
+  display: inline-block;
+  border-radius: 50%;
 }
