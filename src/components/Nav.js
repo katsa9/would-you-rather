@@ -2,35 +2,52 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux' 
 
 class TopNav extends Component {
+  
+  state = {
+    collapsed: true,
+  }
+
+  toggleNavbar = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    })
+  }
+
   render () {
+    const { collapsed } = this.state
+    const classOne = collapsed ? 'collapse navbar-collapse' : 'collapse navbar-collapse show';
+    const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     return (
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="#">Would you Rather</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a className="navbar-brand" href="#">Would you Rather</a>
+        <button onClick={this.toggleNavbar} 
+          className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <div className={`${classOne}`} id="navbarResponsive">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Add Question</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Add Question</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Leaderboard</a>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Leaderboard</a>
             </li>
-            
+            <li className="nav-item">
+              <a className="nav-link pull-left" href="#">Logout</a>
+            </li>
+          </ul>
+          <span className="navbar-text">
+          Logged in as {this.props.user}
+          </span>
+          <ul className="navbar-nav">
           </ul>
            
         </div>
-        <span class="navbar-text">
-              Logged in as {this.props.user}
-            </span>
-            <li class="logout-link">
-              <a class="nav-link pull-left" href="#">Logout</a>
-            </li>
+       
       </nav>
     )
   }
