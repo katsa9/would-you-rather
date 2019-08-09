@@ -1,6 +1,3 @@
-import { getUsers } from '../utils/api'
-import { showLoading, hideLoading } from 'react-redux-loading'
-
 export const RECEIVE_USERS = "RECEIVE_USERS"
 
 export function receiveUsers(users) {

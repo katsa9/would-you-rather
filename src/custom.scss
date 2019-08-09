@@ -22,10 +22,10 @@ $fancy-font: "zapfino";
 @import '~bootstrap/scss/bootstrap.scss';
 
 .container {
-   padding: 20px; 
+   padding:15px; 
    background-color: white;
    border-radius: 9px;
-   margin: 20px auto;
+   margin: 15px auto;
    max-width: 700px;
 }
 
@@ -87,9 +87,27 @@ ul {
   display: flex;
   align-items: center;
   min-height: 100%;  
-    min-height: 100%; 
+  min-height: 100%; 
 }
 .avatar {
   display: inline-block;
   border-radius: 50%;
+}
+
+//Navbar
+.navbar-brand {
+  font-family: zapfino;
+}
+
+.navbar-default .navbar-nav > li > a {
+  background-color: theme-color("primary"); /*Change active text color here*/
+}
+
+.logout-link {
+  @extend .nav-link;
+  margin-left: 25em;
+}
+
+.navbar-text {
+  text-align: left;
 }

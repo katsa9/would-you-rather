@@ -35,7 +35,7 @@ class Login extends Component {
           <h2 className="text-center main-heading my-5">Would you Rather?</h2>
           <img src={cover}
           type="image/svg+xml"
-          className="col-md-6 col-sm-5 rounded mx-auto d-block" alt="Image of person deciding"></img>
+          className="col-md-6 col-sm-5 rounded mx-auto d-block" alt="person deciding"></img>
         </div>
         <div className="my-5 text-center">
         <p>Please select a user:</p>
@@ -50,19 +50,19 @@ class Login extends Component {
           </button>
           <div className={menuClass} aria-labelledby="dropdownMenuButton">
             {users.map((user) => (
-              <a key={user.id} className="dropdown-item"
+              <button key={user.id} className="dropdown-item"
                 onClick={(e) => this.handleUserSelected(e, user)}>
-                {user.name}</a>
+                {user.name}</button>
             ))}
           </div>
         </div>
-        </div>
-        <div className="text-center">
+        <div className="text-center pt-4">
           <button
               className="btn btn-primary"
             onClick={(e) => this.handleLogin(e)}>
             Login
           </button>
+        </div>
         </div>
       </div>
     )

@@ -29,7 +29,7 @@ class Question extends Component {
               <div className="my-2 answer">
                 {question.optionOne.text}
               </div>
-              <b>OR</b>
+              <b className="col-md-12">OR</b>
               <div className="my-2 answer">
                 {question.optionTwo.text}
               </div>
