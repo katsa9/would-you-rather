@@ -35,14 +35,14 @@ class Question extends Component {
               </div>
             </div>
           </div>
-        <div className="pull-right">
-          <button className="btn btn-primary float-right mt-2"
-          onClick={this.goToPoll}>
-          View Poll
+        <div className="text-right">
+          <button
+              className="btn btn-primary mt-3"
+            onClick={this.goToPoll}>
+            View Poll
           </button>
         </div>
         </div>
-
       </div>
 
     )
