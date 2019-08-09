@@ -11,7 +11,7 @@ import TopNav from './Nav'
 //set authed user when the login button is clicked
 
 class App extends Component {
-//authed user is being overridden on resfreshn- fix
+//authed user is being overridden on resfreshn- use local storage
   componentDidMount () {
     this.props.dispatch(handleInitialData())
   }

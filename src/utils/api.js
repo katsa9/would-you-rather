@@ -5,6 +5,7 @@ import {
   _saveQuestionAnswer
 } from './_DATA.js'
 
+//should only be users initially
 export function getInitialData() {
   return Promise.all([
     _getUsers(),
