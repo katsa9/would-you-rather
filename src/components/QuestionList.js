@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import Question from './Question'
 
 class QuestionList extends Component {
@@ -8,7 +8,7 @@ class QuestionList extends Component {
     return (
       <div className="green-container">
         <ul>
-          {this.props.questionIds.map((id) => (
+          {this.props.questions.map((id) => (
             <li key={id}>
               <Question id={id} />
             </li>
@@ -19,11 +19,12 @@ class QuestionList extends Component {
   }
 }
 
-function mapStateToProps ({ questions }) {
-  return {
-    questionIds: Object.keys(questions)
-      .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-  }
-}
+//change this to only take in list of ids as props
+// function mapStateToProps ({ questions }) {
+//   return {
+//     questionIds: Object.keys(questions)
+//       .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+//   }
+// }
 
-export default connect(mapStateToProps)(QuestionList)
+export default QuestionList

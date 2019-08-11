@@ -63,11 +63,13 @@ ul {
   text-align: center;
 }
 
-.btn-secondary::active {
-  background: darkorange;
+.btn-secondary:hover {
+  background-color: theme-color("dark");
 }
-//   background: #FFFFFF;
-// }
+.btn-secondary:focus {
+  background-color: theme-color("dark");
+  border: 0px;
+}
 
 .dropdown {
   background: #FFFFFF;
