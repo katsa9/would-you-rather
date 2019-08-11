@@ -25,6 +25,10 @@ class App extends Component {
   }
 
   render () {
+    const { showAnswered } = this.state
+    const answeredClass = showAnswered ? 'my-2 btn btn-selected' : 'my-2 btn btn-secondary';
+    const unansweredClass = !showAnswered ? 'my-2 btn btn-selected' : 'my-2 btn btn-secondary';
+    
     return (
       <Fragment>
         <LoadingBar />
@@ -32,14 +36,15 @@ class App extends Component {
           {this.props.authedUser
             ? <div className="center">
               <TopNav />
-              {/* <div className="text-center"> */}
-                <div className="col-md-5 btn-group text-center" role="group" data-toggle="button">
+              <div className="text-center">
+                <div className="btn-group text-center" role="group" data-toggle="button">
                   <button onClick={this.showUnAnsweredQuestions}
-                  type="button" className="my-2 btn btn-secondary" active>
+                  type="button" className={unansweredClass}>
                     Unanswered Questions</button>
                   <button onClick={this.showAnsweredQuestions}
-                  type="button" className="my-2 btn btn-secondary">
+                  type="button" className={answeredClass}>
                     Answered Questions</button>
+                </div>
                 </div>
               {this.state.showAnswered ?
                 <QuestionList 

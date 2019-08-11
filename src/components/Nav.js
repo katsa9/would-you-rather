@@ -40,11 +40,9 @@ class TopNav extends Component {
               <a className="nav-link pull-left" href="#">Logout</a>
             </li>
           </ul>
-          <span className="navbar-text">
+            <span className="navbar-text">
           Logged in as {this.props.user}
           </span>
-          <ul className="navbar-nav">
-          </ul>
            
         </div>
        
