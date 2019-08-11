@@ -11,19 +11,11 @@ $body-color: rgb(32, 32, 32);
 $container-color: theme-color("light");
 $border-radius: 1px; 
 $brand-primary:theme-color("secondary");
-// $brand-success: #11cc11; 
-// $brand-info: cyan; 
-// $brand-warning: #334455; 
-// $brand-danger: #cc1111; 
 $font-family-sans-serif: "Avenir Next", sans-serif;
 $fancy-font: "zapfino";
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
-
-.body {
-  font-family: AvenirNext-Regular;
-}
 
 .container {
    padding:10px; 

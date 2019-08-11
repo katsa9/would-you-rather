@@ -13,15 +13,26 @@ class NewQuestion extends Component {
   handleChange = (e) => {
     const text = e.target.value
     const item = e.target.placeholder
-    if(item === 'Option One') {
+    if (item === 'Option One') {
       this.setState(() => ({
-          optionOne: text
-        }))
-    }else if(item === 'Option Two') {
+        optionOne: text
+      }))
+    } else if (item === 'Option Two') {
       this.setState(() => ({
         optionTwo: text
       }))
     }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { optionOne, optionTwo } = this.state
+    const { dispatch } = this.props
+    dispatch(handleSaveNewQuestion(optionOne, optionTwo))
+    this.setState(() => ({
+      optionOne: '',
+      optionTwo: ''
+    }))
   }
 
   render () {
@@ -33,7 +44,7 @@ class NewQuestion extends Component {
           <hr></hr>
           <div className="container">
             {/* <div className="row"> */}
-            <form className='py-2 new-question' onSubmit={this.handleSubmit}>
+            <form className='new-question' onSubmit={this.handleSubmit}>
               <p>Complete the Question:</p>
               <b>Would you rather..</b>
               <input type="text"
@@ -51,15 +62,15 @@ class NewQuestion extends Component {
                 onChange={this.handleChange}
                 aria-label="Option Two">
               </input>
+              <div className="text-right">
+                <button className='btn btn-primary'
+                  type='submit'
+                  disabled={optionOne === '' || optionTwo === ''}>
+                  Submit
+          </button>
+              </div>
             </form>
           </div>
-          <div className="text-right">
-          <button className='btn btn-primary'
-            type='submit'
-            disabled={optionOne === '' || optionTwo === ''}>
-            Submit
-          </button>
-        </div>
         </div>
       </div>
     )
