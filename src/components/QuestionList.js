@@ -19,12 +19,4 @@ class QuestionList extends Component {
   }
 }
 
-//change this to only take in list of ids as props
-// function mapStateToProps ({ questions }) {
-//   return {
-//     questionIds: Object.keys(questions)
-//       .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-//   }
-// }
-
 export default QuestionList

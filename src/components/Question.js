@@ -25,7 +25,7 @@ class Question extends Component {
               />
             </div>
             <div className="col-sm-9 col-md-9">
-              <b className="">Would you rather..</b>
+              <b>Would you rather..</b>
               <div className="my-2 answer">
                 {question.optionOne.text}
               </div>

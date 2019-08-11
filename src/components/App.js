@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 import QuestionList from './QuestionList'
+import NewQuestion from './NewQuestion'
 import Login from './Login'
 import TopNav from './Nav'
 
@@ -36,6 +37,8 @@ class App extends Component {
           {this.props.authedUser
             ? <div className="center">
               <TopNav />
+              <NewQuestion />
+              <hr></hr>
               <div className="text-center">
                 <div className="btn-group text-center" role="group" data-toggle="button">
                   <button onClick={this.showUnAnsweredQuestions}

@@ -21,6 +21,10 @@ $fancy-font: "zapfino";
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
 
+.body {
+  font-family: AvenirNext-Regular;
+}
+
 .container {
    padding:10px; 
    background-color: white;
@@ -58,6 +62,15 @@ ul {
     cursor: pointer;
 }
 
+.btn-primary:hover {
+  background-color: theme-color("dark");
+}
+
+.btn-primary:disabled {
+  background: theme-color("secondary");
+  cursor: default;
+}
+
 .btn-secondary {
   border-radius: 4px;
   text-align: center;
@@ -70,6 +83,11 @@ ul {
 .btn-secondary:focus {
   background-color: theme-color("dark");
   border: 0px;
+}
+
+.btn-secondary:disabled {
+  background: theme-color("secondary");
+  cursor: default;
 }
 
 .btn-selected {
@@ -97,11 +115,17 @@ ul {
   font-family: zapfino;
 }
 
+.page-heading {
+  @extend .h3;
+  font-family: zapfino;
+}
+
 .answer {
   border-radius: 5px;
   background-color: theme-color("secondary");
   position: relative;
   padding: .5em;
+  text-transform: capitalize;
 }
 
 .avatar-container {
@@ -133,14 +157,6 @@ ul {
   text-align: left;
 }
 
-//Question List
-
-.btn-group {
-
+.input {
+  border-radius: 4px;
 }
-
-
-
-// .btn-group::selection {
-//   background-color: white;
-// }
