@@ -152,3 +152,19 @@ ul {
 .input {
   border-radius: 4px;
 }
+
+// .table {
+//   border-radius: 5px;
+//   border: 1px solid theme-color("secondary");
+// }
+th {
+  background-color: theme-color("secondary");
+  // border-radius: 5px;
+}
+
+tr {
+  border-bottom: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-radius: 1em;
+}
