@@ -11,3 +11,22 @@ export function leaderboardData(user) {
     score: answered + created
   }
 }
+
+export function pollData(user, question, authedUser) {
+  const { avatarURL } = user
+  const { optionOne, optionTwo, author } = question
+  const yourVote = ''
+  if(optionOne.votes.includes(authedUser))
+
+  return {
+    author,
+    avatarURL,
+    yourVote,
+    optionOne: optionOne.text,
+    optionTwo: optionTwo.text,
+    optionOneVotes: optionOne.votes.length,
+    optionTwoVotes: optionTwo.votes.length,
+    total: optionOne.votes.length + optionTwo.votes.length,
+    percentage: optionOne.votes.length / optionTwo.votes.length *100,
+  }
+}
