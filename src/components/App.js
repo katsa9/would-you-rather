@@ -4,6 +4,7 @@ import { handleInitialData } from '../actions/shared'
 import LoadingBar from 'react-redux-loading'
 import QuestionList from './QuestionList'
 import Poll from './Poll'
+import Leaderboard from './Leaderboard'
 import Login from './Login'
 import TopNav from './Nav'
 
@@ -36,7 +37,8 @@ class App extends Component {
           {this.props.authedUser
             ? <div className="center">
               <TopNav />
-              <Poll />
+              <Poll 
+              id={'6ni6ok3ym7mf1p33lnez'}/>
               <hr></hr>
               <div className="text-center">
                 <div className="btn-group text-center" role="group" data-toggle="button">

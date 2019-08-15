@@ -153,13 +153,9 @@ ul {
   border-radius: 4px;
 }
 
-// .table {
-//   border-radius: 5px;
-//   border: 1px solid theme-color("secondary");
-// }
-th {
+.main-header {
   background-color: theme-color("secondary");
-  // border-radius: 5px;
+  text-transform: capitalize
 }
 
 tr {
@@ -167,4 +163,21 @@ tr {
   border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
   border-radius: 1em;
+}
+
+.your-vote {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: white;
+  background: theme-color("dark");
+  background-repeat: no-repeat;
+  background-size: 60px;
+  font-size: 11pt;
+  text-align: center;
+
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
 }

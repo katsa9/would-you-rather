@@ -1,30 +1,68 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { pollData } from '../utils/helpers'
+import { getPollData } from '../utils/helpers'
 
 class Poll extends Component {
   render () {
-    const { question } = this.propsß
+    const { pollData } = this.props
     return (
       <div className="green-container">
         <div className="container">
-          <b>Asked by: {question.author}</b>
+          <b>Asked by: {pollData.name}</b>
           <hr></hr>
           <div className="container">
             <div className="row">
               <div className="avatar-container col-sm-3 col-md-3">
                 <img
-                  src={user.avatar}
-                  alt={`Avatar of ${user.name}`}
+                  src={pollData.avatarURL}
+                  alt={`Avatar of ${pollData.name}`}
                   className="avatar"
                   width="120"
                   height="120"
                 />
               </div>
-              <div className="col-sm-6 col-md-6">
-                <p>Questions Answered: {user.answered}</p>
-                <hr></hr>
-                <p>Questions Created: {user.created}</p>
+              <div className="col-sm-8 col-md-8">
+                <b>Results</b>
+                <div className="my-2 answer">
+                  {pollData.yourVote === 'optionOne' && (
+                    <div className="pt-2 your-vote">Your vote</div>
+                  )}
+                  {pollData.option1.text}
+                </div>
+                <table className="table centered">
+                  <thead>
+                    <tr>
+                      <th scope="col">%</th>
+                      <th scope="col">Votes</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    <tr>
+                      <td>{pollData.option1.percentage}</td>
+                      <td>{pollData.option1.votes} out of {pollData.total}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div className="my-2 answer">
+                  {pollData.yourVote === 'optionTwo' && (
+                    <div className="pt-2 your-vote">Your vote</div>
+                  )}
+                  {pollData.option2.text}
+                </div>
+                <table className="table centered">
+                  <thead>
+                    <tr>
+                      <th scope="col">%</th>
+                      <th scope="col">Votes</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    <tr>
+                      <td>{pollData.option2.percentage}</td>
+                      <td>{pollData.option2.votes} out of {pollData.total}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -34,8 +72,13 @@ class Poll extends Component {
   }
 }
 
-function mapStateToProps ({ questions, users }, { id }) {
-const question = 
+function mapStateToProps ({ questions, users, authedUser }, { id }) {
+  const question = questions[id]
+  const user = users[question.author]
+  const pollData = getPollData(user, question, authedUser)
+  return {
+    pollData
+  }
 }
 
-export default connect()(Poll)
+export default connect(mapStateToProps)(Poll)

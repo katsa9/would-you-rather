@@ -12,21 +12,31 @@ export function leaderboardData(user) {
   }
 }
 
-export function pollData(user, question, authedUser) {
-  const { avatarURL } = user
-  const { optionOne, optionTwo, author } = question
-  const yourVote = ''
-  if(optionOne.votes.includes(authedUser))
+export function getPollData(user, question, authedUser) {
+  const { avatarURL, name } = user
+  const { optionOne, optionTwo } = question
+  const totalVotes = optionOne.votes.length + optionTwo.votes.length
+  let yourVote = ''
+  if(optionOne.votes.includes(authedUser)) {
+    yourVote = "optionOne"
+  }else if(optionTwo.votes.includes(authedUser)) {
+    yourVote = "optionTwo"
+  }
 
   return {
-    author,
+    name,
     avatarURL,
     yourVote,
-    optionOne: optionOne.text,
-    optionTwo: optionTwo.text,
-    optionOneVotes: optionOne.votes.length,
-    optionTwoVotes: optionTwo.votes.length,
+    option1: {
+      text: optionOne.text,
+      votes: optionOne.votes.length,
+      percentage: optionOne.votes.length / totalVotes *100
+    },
+    option2: {
+      text: optionTwo.text,
+      votes: optionTwo.votes.length,
+      percentage: optionTwo.votes.length / totalVotes *100
+    },
     total: optionOne.votes.length + optionTwo.votes.length,
-    percentage: optionOne.votes.length / optionTwo.votes.length *100,
   }
 }
