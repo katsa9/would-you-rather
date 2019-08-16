@@ -6,7 +6,7 @@ class Poll extends Component {
   render () {
     const { pollData } = this.props
     return (
-      <div className="green-container">
+      <div className="green-container py-3 px-4">
         <div className="container">
           <b>Asked by: {pollData.name}</b>
           <hr></hr>
