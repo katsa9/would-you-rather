@@ -1,14 +1,50 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { handleAnswerQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 class Question extends Component {
+
+  state = {
+    optionOne: false,
+    optionTwo: false
+  }
 
   gotToPoll = (e, id) => {
     //navigate to question page with id
   }
 
+  submitAnswer = (e) => {
+    const { id } = this.props
+    const { authedUser, dispatch } = this.props
+    const answer = this.state.optionOne ? 'optionOne' : 'optionTwo'
+    console.log("question id: ", id)
+    dispatch(handleAnswerQuestion({ 
+      qid: id,
+      authedUser,
+      answer }))
+  }
+
+  toggleSelection = (e) => {
+    if(e.target.id === 'option1') {
+      this.setState((currentState) => ({
+        optionOne: !currentState.optionOne,
+        optionTwo: !currentState.optionOne === currentState.optionTwo ? !currentState.optionTwo : currentState.optionTwo
+      }));
+    } else if(e.target.id === 'option2') {
+      this.setState((currentState) => ({
+        optionOne: !currentState.optionTwo === currentState.optionOne ? !currentState.optionOne : currentState.optionOne,
+        optionTwo: !currentState.optionTwo 
+      }));
+    }
+  }
+
+//adapt to check for submitState
   render () {
-    const { question, author, avatar } = this.props
+    const { question, author, avatar , submitState} = this.props
+    const { optionOne, optionTwo } = this.state
+    const optionOneClass = optionOne ? 'my-2 answer-selected' : 'my-2 answer';
+    const optionTwoClass = optionTwo ? 'my-2 answer-selected' : 'my-2 answer';
     return (
       <div className="container">
         <b>{author} asks:</b>
@@ -26,33 +62,38 @@ class Question extends Component {
             </div>
             <div className="col-sm-9 col-md-9">
               <b>Would you rather..</b>
-              <div className="my-2 answer">
+              <div id='option1' className={optionOneClass}
+                onClick={this.toggleSelection}>
                 {question.optionOne.text}
               </div>
               <b className="col-md-12">OR</b>
-              <div className="my-2 answer">
+              <div id='option2' className={optionTwoClass}
+                onClick={this.toggleSelection}>
                 {question.optionTwo.text}
               </div>
             </div>
           </div>
         <div className="text-right">
-          <button
+          {submitState ? (<button
+              className="btn btn-primary mt-3"
+            onClick={this.submitAnswer}
+            disabled={!optionOne && !optionTwo}>
+            Submit
+          </button>)
+          : (<button
               className="btn btn-primary mt-3"
             onClick={this.goToPoll}>
             View Poll
-          </button>
+          </button>)}
         </div>
         </div>
       </div>
-
     )
   }
 }
 
-//need to add authed user here
-function mapStateToProps ({ questions, users }, { id }) { //second arg is props from parent
+function mapStateToProps ({ questions, users, authedUser }, { id }) { //second arg is props from parent
   const question = questions[id]
-
   const avatar = users[question.author].avatarURL
   const author = users[question.author].name
   return {
@@ -60,7 +101,8 @@ function mapStateToProps ({ questions, users }, { id }) { //second arg is props 
       ? question
       : null,
     avatar: avatar ? avatar : null,
-    author: author ? author : null
+    author: author ? author : null,
+    authedUser
   }
 }
 export default connect(mapStateToProps)(Question)

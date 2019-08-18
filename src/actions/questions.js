@@ -44,13 +44,22 @@ function answerQuestion({authedUser, id, answer}) {
 
 export function handleAnswerQuestion(info) {
   return (dispatch) => {
+    dispatch(answerQuestion(info))
     return saveQuestionAnswer(info)
-    .then(() => {
-      dispatch(answerQuestion(info))
-    })
-    .catch((e) => {
-      console.warn('Error in handleAnswerQuestion', e)
-      alert('There was an error. Try again')
-    })
+      .catch((e) => {
+        console.warn('Error in handleAnswerQuestion', e)
+        alert('There was an error. Try again')
+      })
+
+
+
+    // return saveQuestionAnswer(info)
+    // .then((info) => {
+    //   dispatch(answerQuestion(info))
+    // })
+    // .catch((e) => {
+    //   console.warn('Error in handleAnswerQuestion', e)
+    //   alert('There was an error. Try again')
+    // })
   }
 }

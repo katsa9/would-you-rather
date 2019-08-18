@@ -19,6 +19,8 @@ export default function questions(state = {}, action) {
       }  
     case SAVE_QUESTION_ANSWER: {
       const {authedUser, id, answer} = action
+      console.log("answer: ", answer)
+      console.log("qid: ", id) ///why is this coming through as undefined???
       return {
         ...state,
         [id]: {

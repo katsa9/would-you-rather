@@ -12,7 +12,7 @@ class QuestionList extends Component {
             <li key={id}>
               <Question 
               id={id}
-              submitState={false} />
+              submitState={true} />
             </li>
           ))}
         </ul>

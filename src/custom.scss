@@ -120,6 +120,18 @@ ul {
   text-transform: capitalize;
 }
 
+.answer:hover {
+  cursor: pointer;
+  background-color: theme-color("dark");
+  color: white;
+}
+
+.answer-selected {
+  @extend .answer;
+  background-color: theme-color("dark");
+  color: white;
+}
+
 .avatar-container {
   display: flex;
   align-items: center;
