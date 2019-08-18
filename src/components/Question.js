@@ -16,12 +16,11 @@ class Question extends Component {
 
   submitAnswer = (e) => {
     const { id } = this.props
-    const { authedUser, dispatch } = this.props
+    const { dispatch } = this.props
     const answer = this.state.optionOne ? 'optionOne' : 'optionTwo'
     console.log("question id: ", id)
     dispatch(handleAnswerQuestion({ 
-      qid: id,
-      authedUser,
+      id,
       answer }))
   }
 
@@ -92,7 +91,7 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps ({ questions, users, authedUser }, { id }) { //second arg is props from parent
+function mapStateToProps ({ questions, users }, { id }) { //second arg is props from parent
   const question = questions[id]
   const avatar = users[question.author].avatarURL
   const author = users[question.author].name
@@ -101,8 +100,7 @@ function mapStateToProps ({ questions, users, authedUser }, { id }) { //second a
       ? question
       : null,
     avatar: avatar ? avatar : null,
-    author: author ? author : null,
-    authedUser
+    author: author ? author : null
   }
 }
 export default connect(mapStateToProps)(Question)

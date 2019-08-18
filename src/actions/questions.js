@@ -5,61 +5,53 @@ export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS"
 export const SAVE_NEW_QUESTION = "SAVE_NEW_QUESTION"
 export const SAVE_QUESTION_ANSWER = "SAVE_QUESTION_ANSWER"
 
-export function receiveQuestions(questions) {
+export function receiveQuestions (questions) {
   return {
     type: RECEIVE_QUESTIONS,
     questions
   }
 }
 
-function saveNewQuestion(question) {
+function saveNewQuestion (question) {
   return {
     type: SAVE_NEW_QUESTION,
     question
   }
 }
 //thunk
-export function handleSaveNewQuestion(optionOneText, optionTwoText) {
+export function handleSaveNewQuestion (optionOneText, optionTwoText) {
   return (dispatch, getState) => {
     const { authedUser } = getState()
     dispatch(showLoading())
     return saveQuestion({
-       optionOneText,
-       optionTwoText,
-       author: authedUser 
+      optionOneText,
+      optionTwoText,
+      author: authedUser
     })
-    .then((question) => dispatch(saveNewQuestion(question)))
-    .then(() => dispatch(hideLoading())) 
+      .then((question) => dispatch(saveNewQuestion(question)))
+      .then(() => dispatch(hideLoading()))
   }
 }
 
-function answerQuestion({authedUser, id, answer}) {
+function answerQuestion (info) {
   return {
     type: SAVE_QUESTION_ANSWER,
-    authedUser,
-    id,
-    answer
+    info
   }
 }
 
-export function handleAnswerQuestion(info) {
-  return (dispatch) => {
-    dispatch(answerQuestion(info))
-    return saveQuestionAnswer(info)
+export function handleAnswerQuestion ({ id, answer }) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState()
+    return saveQuestionAnswer({
+      authedUser,
+      id,
+      answer
+    })
+      .then(() => dispatch(answerQuestion({ authedUser, id, answer })))
       .catch((e) => {
         console.warn('Error in handleAnswerQuestion', e)
         alert('There was an error. Try again')
       })
-
-
-
-    // return saveQuestionAnswer(info)
-    // .then((info) => {
-    //   dispatch(answerQuestion(info))
-    // })
-    // .catch((e) => {
-    //   console.warn('Error in handleAnswerQuestion', e)
-    //   alert('There was an error. Try again')
-    // })
   }
 }

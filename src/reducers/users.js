@@ -25,7 +25,7 @@ export default function users(state = {}, action) {
         ...updatedUser
       }
      case SAVE_QUESTION_ANSWER:
-        const {authedUser, id, answer} = action
+        const {authedUser, id, answer} = action.info
       return {
         ...state, 
         [authedUser]: {
