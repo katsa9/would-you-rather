@@ -2,7 +2,7 @@ let users = {
   hermionegranger: {
     id: 'hermionegranger',
     name: 'Hermione Granger',
-    avatarURL: 'https://images-na.ssl-images-amazon.com/images/I/81Z9f1Kos%2BL._SY679_.jpg',
+    avatarURL: 'images/hermione.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   harrypotter: {
     id: 'harrypotter',
     name: 'Harry Potter',
-    avatarURL: 'https://bloximages.newyork1.vip.townnews.com/stltoday.com/content/tncms/assets/v3/editorial/7/cc/7cc28fcb-e65d-5b56-8cf9-eb0f9bccaf8a/4c1b1a0a1116b.image.jpg?resize=468%2C456',
+    avatarURL: 'images/harry.jpeg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   ronweasley: {
     id: 'ronweasley',
     name: 'Ron Weasley',
-    avatarURL: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Ron_Weasley_poster.jpg/220px-Ron_Weasley_poster.jpg',
+    avatarURL: 'images/ron.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

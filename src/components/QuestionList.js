@@ -10,7 +10,9 @@ class QuestionList extends Component {
         <ul>
           {this.props.questions.map((id) => (
             <li key={id}>
-              <Question id={id} />
+              <Question 
+              id={id}
+              submitState={false} />
             </li>
           ))}
         </ul>
