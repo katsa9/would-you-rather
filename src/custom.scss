@@ -120,6 +120,11 @@ ul {
   text-transform: capitalize;
 }
 
+.answer-disabled {
+  @extend .answer;
+  pointer-events:none;
+}
+
 .answer:hover {
   cursor: pointer;
   background-color: theme-color("dark");

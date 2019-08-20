@@ -42,8 +42,10 @@ class Question extends Component {
   render () {
     const { question, author, avatar , submitState} = this.props
     const { optionOne, optionTwo } = this.state
-    const optionOneClass = optionOne ? 'my-2 answer-selected' : 'my-2 answer';
-    const optionTwoClass = optionTwo ? 'my-2 answer-selected' : 'my-2 answer';
+    const optionOneClass = optionOne ? 'my-2 answer-selected' : 'my-2 answer'
+    const optionTwoClass = optionTwo ? 'my-2 answer-selected' : 'my-2 answer'
+    const disabledClass = 'answer-disabled'
+    console.log("submit state: ", submitState)
     return (
       <div className="container">
         <b>{author} asks:</b>
@@ -61,12 +63,12 @@ class Question extends Component {
             </div>
             <div className="col-sm-9 col-md-9">
               <b>Would you rather..</b>
-              <div id='option1' className={optionOneClass}
+              <div id='option1' className={submitState ? optionOneClass : disabledClass}
                 onClick={this.toggleSelection}>
                 {question.optionOne.text}
               </div>
               <b className="col-md-12">OR</b>
-              <div id='option2' className={optionTwoClass}
+              <div id='option2' className={submitState ? optionTwoClass : disabledClass}
                 onClick={this.toggleSelection}>
                 {question.optionTwo.text}
               </div>

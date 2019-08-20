@@ -1,83 +1,44 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoadingBar from 'react-redux-loading'
-import QuestionList from './QuestionList'
-import Poll from './Poll'
-import Leaderboard from './Leaderboard'
 import Login from './Login'
+import Dashboard from './Dashboard'
 import TopNav from './Nav'
+import Poll from './Poll'
+import NewQuestion from './NewQuestion'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount () {
     this.props.dispatch(handleInitialData())
   }
 
-  state = {
-    showAnswered: false
-  }
-
-  showAnsweredQuestions = () => {
-    this.setState({showAnswered: true})
-  }
-
-  showUnAnsweredQuestions = () => {
-    this.setState({showAnswered: false})
-  }
-
   render () {
-    const { showAnswered } = this.state
-    const answeredClass = showAnswered ? 'my-2 btn btn-selected' : 'my-2 btn btn-secondary';
-    const unansweredClass = !showAnswered ? 'my-2 btn btn-selected' : 'my-2 btn btn-secondary';
-    
     return (
-      <Fragment>
-        <LoadingBar />
-        <div>
-          {this.props.authedUser
-            ? <div className="center">
-              <TopNav />
-              <Poll 
-              id={'6ni6ok3ym7mf1p33lnez'}/>
-              <hr></hr>
-              <div className="text-center">
-                <div className="btn-group text-center" role="group" data-toggle="button">
-                  <button onClick={this.showUnAnsweredQuestions}
-                  type="button" className={unansweredClass}>
-                    Unanswered Questions</button>
-                  <button onClick={this.showAnsweredQuestions}
-                  type="button" className={answeredClass}>
-                    Answered Questions</button>
-                </div>
-                </div>
-              {this.state.showAnswered ?
-                <QuestionList 
-                questions={this.props.answered}/>
-                : <QuestionList 
-                questions={this.props.unanswered}/>
-              }
-            </div>
-            : <Login />}
-        </div>
-      </Fragment>
+      <Router>
+        <Fragment>
+          <LoadingBar />
+          <div>
+            <TopNav />
+            {this.props.authedUser
+              ? <Route path='/' exact component={Dashboard} />
+              : <Route path='/' exact component={Login} />
+            }
+            <Route path='/questions/:id' component={Poll} /> 
+            <Route path='/add' component={NewQuestion} />
+            <Route path='/leaderboard' component={Leaderboard} />
+          </div>
+        </Fragment>
+      </Router>
     );
   }
 }
 
-function mapStateToProps ({ authedUser, questions }) {
-  //filter out questions that have been answered
-  const answered = Object.keys(questions)
-  .filter((q) => (questions[q].optionOne.votes.includes(authedUser) || questions[q].optionTwo.votes.includes(authedUser)))
-  .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-
-  const unanswered = Object.keys(questions)
-  .filter((q) => (!questions[q].optionOne.votes.includes(authedUser) && !questions[q].optionTwo.votes.includes(authedUser)))
-  .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
-
+function mapStateToProps ({ authedUser }) {
   return {
-    authedUser,
-    answered,
-    unanswered
+    authedUser
   }
 }
 
