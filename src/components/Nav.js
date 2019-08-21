@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux' 
 import { NavLink } from 'react-router-dom'
+import { setAuthedUser } from '../actions/authedUser';
 
 class TopNav extends Component {
   
@@ -12,6 +13,12 @@ class TopNav extends Component {
     this.setState({
       collapsed: !this.state.collapsed,
     })
+  }
+
+  handleLogout = (e) => {
+    e.preventDefault()
+    const { dispatch } = this.props
+    dispatch(setAuthedUser(null))
   }
 
   render () {
@@ -43,13 +50,15 @@ class TopNav extends Component {
             Leaderboard
           </NavLink>
             </li>
-            {/* <li className="nav-item">
-              <a className="nav-link pull-left" href="/">Logout</a>
-            </li> */}
+            <li className="nav-item">
+              <a className="nav-link pull-left" href="/" onClick={this.handleLogout}>Logout</a>
+            </li>
           </ul>
-          <span className="navbar-text">
-          Logged in as {this.props.user}
-          </span>
+          {this.props.user
+          ? <span className="navbar-text">
+            Logged in as {this.props.user}
+            </span>
+           : null} 
         </div>
       </nav>
     )

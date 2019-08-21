@@ -13,23 +13,13 @@ class App extends Component {
   }
 
   render () {
-    // const { authedUser } = this.props
     return (
         <Fragment>
           <LoadingBar />
           <Dashboard />
-          {/* {authedUser 
-          ? <Dashboard />
-          : <Login />} */}
         </Fragment>
-    );
+    )
   }
 }
-
-// function mapStateToProps ({ authedUser }) {
-//   return {
-//     authedUser
-//   }
-// }
 
 export default connect()(App)

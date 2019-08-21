@@ -1,51 +1,62 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 
 class Question extends Component {
 
   state = {
     optionOne: false,
-    optionTwo: false
+    optionTwo: false,
+    buttonClicked: false
   }
 
-  gotToPoll = (e, id) => {
-    //navigate to question page with id
+  goToPoll = (e) => {
+    e.preventDefault()
+    const { id } = this.props
+    this.setState(() => ({
+      buttonClicked: true
+    }));
+    this.props.history.push(`/questions/${id}`)
   }
 
   submitAnswer = (e) => {
     const { id } = this.props
     const { dispatch } = this.props
     const answer = this.state.optionOne ? 'optionOne' : 'optionTwo'
-    console.log("question id: ", id)
-    dispatch(handleAnswerQuestion({ 
+    dispatch(handleAnswerQuestion({
       id,
-      answer }))
+      answer
+    }))
+    this.setState(() => ({
+      buttonClicked: true
+    }));
   }
 
   toggleSelection = (e) => {
-    if(e.target.id === 'option1') {
+    if (e.target.id === 'option1') {
       this.setState((currentState) => ({
         optionOne: !currentState.optionOne,
         optionTwo: !currentState.optionOne === currentState.optionTwo ? !currentState.optionTwo : currentState.optionTwo
       }));
-    } else if(e.target.id === 'option2') {
+    } else if (e.target.id === 'option2') {
       this.setState((currentState) => ({
         optionOne: !currentState.optionTwo === currentState.optionOne ? !currentState.optionOne : currentState.optionOne,
-        optionTwo: !currentState.optionTwo 
+        optionTwo: !currentState.optionTwo
       }));
     }
   }
 
-//adapt to check for submitState
+  //adapt to check for submitState
   render () {
-    const { question, author, avatar , submitState} = this.props
-    const { optionOne, optionTwo } = this.state
+    const { question, author, avatar, submitState } = this.props
+    const { optionOne, optionTwo, buttonClicked} = this.state
     const optionOneClass = optionOne ? 'my-2 answer-selected' : 'my-2 answer'
     const optionTwoClass = optionTwo ? 'my-2 answer-selected' : 'my-2 answer'
     const disabledClass = 'answer-disabled'
-    console.log("submit state: ", submitState)
+    // if(buttonClicked) {
+    //   return <Redirect to={`/question/${question.id}`} />
+    // }
     return (
       <div className="container">
         <b>{author} asks:</b>
@@ -74,19 +85,19 @@ class Question extends Component {
               </div>
             </div>
           </div>
-        <div className="text-right">
-          {submitState ? (<button
+          <div className="text-right">
+            {submitState ? (<button
               className="btn btn-primary mt-3"
-            onClick={this.submitAnswer}
-            disabled={!optionOne && !optionTwo}>
-            Submit
+              onClick={this.submitAnswer}
+              disabled={!optionOne && !optionTwo}>
+              Submit
           </button>)
-          : (<button
-              className="btn btn-primary mt-3"
-            onClick={this.goToPoll}>
-            View Poll
+              : (<button
+                className="btn btn-primary mt-3"
+                onClick={this.goToPoll}>
+                View Poll
           </button>)}
-        </div>
+          </div>
         </div>
       </div>
     )
@@ -105,4 +116,18 @@ function mapStateToProps ({ questions, users }, { id }) { //second arg is props 
     author: author ? author : null
   }
 }
-export default connect(mapStateToProps)(Question)
+export default withRouter(connect(mapStateToProps)(Question))
+
+
+{/* <div className="text-right">
+            {submitState
+            ? (<Link to={`/question/${question.id}`} className="btn btn-primary mt-3"
+              onClick={this.submitAnswer}
+              disabled={!optionOne && !optionTwo}>
+              Submit
+              </Link>)
+              : (<Link to={`/question/${question.id}`} className="btn btn-primary mt-3"
+                onClick={this.goToPoll}>
+                View Poll
+               </Link>)}
+          </div> */}

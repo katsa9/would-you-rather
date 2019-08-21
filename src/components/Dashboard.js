@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import QuestionList from './QuestionList'
 import TopNav from './Nav'
-import Poll from './Poll'
+import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
 import Leaderboard from './Leaderboard'
 import Login from './Login'
@@ -19,7 +19,7 @@ class Dashboard extends Component {
        ? 
       <div className="center">
             <Route path='/' exact component={QuestionList} />
-            <Route path='/questions/:id' component={Poll} /> 
+            <Route path='/questions/:id' component={QuestionPage} /> 
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={Leaderboard} />
       </div>
