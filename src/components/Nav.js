@@ -28,18 +28,18 @@ class TopNav extends Component {
 
         <div className={classOne} id="navbarResponsive">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-            <NavLink to='/' exact activeClassName='active'>
+            <li className="nav-item">
+            <NavLink to='/' exact className="nav-link" activeClassName='active'>
                Home
               </NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to='/add' activeClassName='active'>
+            <NavLink to='/add' className="nav-link" activeClassName='active'>
             Add Question
           </NavLink>
             </li>
             <li className="nav-item">
-            <NavLink to='/leaderboard' activeClassName='nav-item active'>
+            <NavLink to='/leaderboard' className="nav-link" activeClassName='active'>
             Leaderboard
           </NavLink>
             </li>

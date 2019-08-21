@@ -157,6 +157,13 @@ ul {
   background-color: theme-color("primary"); /*Change active text color here*/
 }
 
+.active {
+  background-color: theme-color("secondary");
+  border-radius: 4px;
+  color: #000000;
+  padding: 0.5em;
+}
+
 .logout-link {
   @extend .nav-link;
   margin-left: 25em;
