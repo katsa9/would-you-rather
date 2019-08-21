@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveNewQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
-
+import TopNav from './Nav'
 class NewQuestion extends Component {
 
   state = {
@@ -38,6 +38,7 @@ class NewQuestion extends Component {
   render () {
     const { optionOne, optionTwo } = this.state
     return (
+      <div>
       <div className="green-container">
         <div className="container">
           <b>Create New Question</b>
@@ -72,6 +73,7 @@ class NewQuestion extends Component {
             </form>
           </div>
         </div>
+      </div>
       </div>
     )
   }
