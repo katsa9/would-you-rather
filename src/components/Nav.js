@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux' 
+import { NavLink } from 'react-router-dom'
 
 class TopNav extends Component {
   
@@ -28,17 +29,23 @@ class TopNav extends Component {
         <div className={classOne} id="navbarResponsive">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+            <NavLink to='/' exact activeClassName='active'>
+               Home
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/add">Add Question</a>
+            <NavLink to='/add' activeClassName='active'>
+            Add Question
+          </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/leaderboard">Leaderboard</a>
+            <NavLink to='/leaderboard' activeClassName='nav-item active'>
+            Leaderboard
+          </NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link pull-left" href="/">Logout</a>
-            </li>
+            </li> */}
           </ul>
           <span className="navbar-text">
           Logged in as {this.props.user}
