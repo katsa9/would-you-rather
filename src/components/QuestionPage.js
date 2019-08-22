@@ -7,11 +7,6 @@ import NotFound from './NotFound'
 class QuestionPage extends Component {
   render () {
     const { question, hasBeenAnswered } = this.props
-
-    if (question === null) {
-      return <NotFound />
-    }
-
     return (
       <div className="container">
         {question ? 

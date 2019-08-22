@@ -6,14 +6,3 @@ export function receiveUsers(users) {
     users
   }
 }
-
-// export function handleReceiveUsers() {
-//   return (dispatch) => {
-//     dispatch(showLoading())
-//     return getUsers()
-//       .then((users) => {
-//         dispatch(receiveUsers(users))
-//         dispatch(hideLoading())
-//       })
-//   }
-// }

@@ -28,16 +28,16 @@ class Login extends Component {
     const { selectedUser } = this.state
     return (
       <div className="green-container">
-        <div className="text-center my-5">
+        <div className="text-center my-2">
         Welcome to
         </div>
         <div className="panel">
           <h2 className="text-center main-heading my-5">Would you Rather?</h2>
           <img src={cover}
           type="image/svg+xml"
-          className="col-md-6 col-sm-5 rounded mx-auto d-block" alt="person deciding"></img>
+          className="col-md-4 col-sm-3 rounded mx-auto d-block" alt="person deciding"></img>
         </div>
-        <div className="my-5 text-center">
+        <div className="my-2 text-center">
         <p>Please select a user:</p>
         <div className="text-center" onClick={this.toggleOpen}>
           <button

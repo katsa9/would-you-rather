@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 
 import LoadingBar from 'react-redux-loading'
-import Login from './Login'
 import Dashboard from './Dashboard'
 
 

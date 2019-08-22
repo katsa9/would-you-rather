@@ -17,13 +17,16 @@ class Dashboard extends Component {
        <TopNav />
        {authedUser 
        ? 
-      <div className="center">
+      (<div className="center my-2">
             <Route path='/' exact component={QuestionList} />
             <Route path='/questions/:id' component={QuestionPage} /> 
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={Leaderboard} />
-      </div>
-      : <Login /> }
+      </div>)
+      : (
+        <div className="center py-5">
+          <Login /> 
+        </div>  )}
       </Router>
     )
   }

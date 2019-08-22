@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
-import { Link, Redirect, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 class Question extends Component {
@@ -48,7 +48,6 @@ class Question extends Component {
     }
   }
 
-  //adapt to check for submitState
   render () {
     const { question, author, avatar, submitState } = this.props
     const { optionOne, optionTwo, buttonClicked} = this.state
@@ -116,17 +115,3 @@ function mapStateToProps ({ questions, users }, { id }) { //second arg is props 
   }
 }
 export default withRouter(connect(mapStateToProps)(Question))
-
-
-{/* <div className="text-right">
-            {submitState
-            ? (<Link to={`/question/${question.id}`} className="btn btn-primary mt-3"
-              onClick={this.submitAnswer}
-              disabled={!optionOne && !optionTwo}>
-              Submit
-              </Link>)
-              : (<Link to={`/question/${question.id}`} className="btn btn-primary mt-3"
-                onClick={this.goToPoll}>
-                View Poll
-               </Link>)}
-          </div> */}

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleSaveNewQuestion } from '../actions/questions'
 import { Redirect } from 'react-router-dom'
-import TopNav from './Nav'
 class NewQuestion extends Component {
 
   state = {
