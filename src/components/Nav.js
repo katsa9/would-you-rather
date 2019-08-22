@@ -27,7 +27,7 @@ class TopNav extends Component {
     const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a className="navbar-brand" href="#">Would you Rather</a>
+        <a className="navbar-brand" href="/">Would you Rather</a>
         <button onClick={this.toggleNavbar} 
           className={classTwo} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

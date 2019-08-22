@@ -50,7 +50,7 @@ class Question extends Component {
 
   render () {
     const { question, author, avatar, submitState } = this.props
-    const { optionOne, optionTwo, buttonClicked} = this.state
+    const { optionOne, optionTwo} = this.state
     const optionOneClass = optionOne ? 'my-2 answer-selected' : 'my-2 answer'
     const optionTwoClass = optionTwo ? 'my-2 answer-selected' : 'my-2 answer'
     const disabledClass = 'answer-disabled'
