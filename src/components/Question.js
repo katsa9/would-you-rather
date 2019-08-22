@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { handleAnswerQuestion } from '../actions/questions'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 
+
 class Question extends Component {
 
   state = {
@@ -54,9 +55,7 @@ class Question extends Component {
     const optionOneClass = optionOne ? 'my-2 answer-selected' : 'my-2 answer'
     const optionTwoClass = optionTwo ? 'my-2 answer-selected' : 'my-2 answer'
     const disabledClass = 'answer-disabled'
-    // if(buttonClicked) {
-    //   return <Redirect to={`/question/${question.id}`} />
-    // }
+    
     return (
       <div className="container">
         <b>{author} asks:</b>
