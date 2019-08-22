@@ -30,12 +30,12 @@ export function getPollData(user, question, authedUser) {
     option1: {
       text: optionOne.text,
       votes: optionOne.votes.length,
-      percentage: optionOne.votes.length / totalVotes *100
+      percentage: (optionOne.votes.length / totalVotes *100).toFixed(0)
     },
     option2: {
       text: optionTwo.text,
       votes: optionTwo.votes.length,
-      percentage: optionTwo.votes.length / totalVotes *100
+      percentage: (optionTwo.votes.length / totalVotes *100).toFixed(0)
     },
     total: optionOne.votes.length + optionTwo.votes.length,
   }

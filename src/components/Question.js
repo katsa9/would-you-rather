@@ -65,7 +65,7 @@ class Question extends Component {
           <div className="row">
             <div className="avatar-container col-sm-3 col-md-3">
               <img
-                src={avatar}
+              src={`../${avatar}`}
                 alt={`Avatar of ${author}`}
                 className="avatar"
                 width="120"

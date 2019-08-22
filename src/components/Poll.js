@@ -14,7 +14,7 @@ class Poll extends Component {
             <div className="row">
               <div className="avatar-container col-sm-3 col-md-3">
                 <img
-                  src={pollData.avatarURL}
+                  src={`../${pollData.avatarURL}`}
                   alt={`Avatar of ${pollData.name}`}
                   className="avatar"
                   width="120"
@@ -23,7 +23,7 @@ class Poll extends Component {
               </div>
               <div className="col-sm-8 col-md-8">
                 <b>Results</b>
-                <div className="my-2 answer">
+                <div className="my-2 answer-disabled">
                   {pollData.yourVote === 'optionOne' && (
                     <div className="pt-2 your-vote">Your vote</div>
                   )}
@@ -38,12 +38,12 @@ class Poll extends Component {
                   </thead>
                   <tbody >
                     <tr>
-                      <td>{pollData.option1.percentage}</td>
+                      <td>{pollData.option1.percentage}%</td>
                       <td>{pollData.option1.votes} out of {pollData.total}</td>
                     </tr>
                   </tbody>
                 </table>
-                <div className="my-2 answer">
+                <div className="my-2 answer-disabled">
                   {pollData.yourVote === 'optionTwo' && (
                     <div className="pt-2 your-vote">Your vote</div>
                   )}
@@ -58,7 +58,7 @@ class Poll extends Component {
                   </thead>
                   <tbody >
                     <tr>
-                      <td>{pollData.option2.percentage}</td>
+                      <td>{pollData.option2.percentage}%</td>
                       <td>{pollData.option2.votes} out of {pollData.total}</td>
                     </tr>
                   </tbody>
