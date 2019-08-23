@@ -58,8 +58,9 @@ class Login extends Component {
         </div>
         <div className="text-center pt-4">
           <button
-              className="btn btn-primary"
-            onClick={(e) => this.handleLogin(e)}>
+            className="btn btn-primary"
+            onClick={(e) => this.handleLogin(e)}
+            disabled={selectedUser === null}>
             Login
           </button>
         </div>

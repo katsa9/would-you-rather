@@ -42,13 +42,11 @@ class NewQuestion extends Component {
       return <Redirect to='/' />
     }
     return (
-      <div>
-        <div className="green-container">
+      <div className="green-container py-3 px-4">
+        <div className="container">
+          <b>Create New Question</b>
+          <hr></hr>
           <div className="container">
-            <b>Create New Question</b>
-            <hr></hr>
-            <div className="container">
-              {/* <div className="row"> */}
               <form className='new-question' onSubmit={this.handleSubmit}>
                 <p>Complete the Question:</p>
                 <b>Would you rather..</b>
@@ -78,7 +76,6 @@ class NewQuestion extends Component {
             </div>
           </div>
         </div>
-      </div>
     )
   }
 }

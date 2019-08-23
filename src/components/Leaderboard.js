@@ -5,7 +5,7 @@ import { leaderboardData } from '../utils/helpers'
 class Leaderboard extends Component {
   render () {
     return (
-      <div className="green-container px-4">
+      <div className="green-container px-2">
         <ul>
           {this.props.users.map((user) => (
             <li key={user.id}>

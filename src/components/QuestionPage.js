@@ -13,7 +13,9 @@ class QuestionPage extends Component {
         (<div>
           {hasBeenAnswered
             ? (<Poll id={question.id} />)
-            : (<Question id={question.id} submitState={true} />)
+            : (<div className="green-container py-3 px-4">
+              <Question id={question.id} submitState={true} />
+              </div>)
           }
         </div> )
         :(<NotFound />)}

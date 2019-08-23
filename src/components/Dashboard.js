@@ -17,7 +17,7 @@ class Dashboard extends Component {
        <TopNav />
        {authedUser 
        ? 
-      (<div className="center my-2">
+      (<div className="center py-4 my-2">
             <Route path='/' exact component={QuestionList} />
             <Route path='/questions/:id' component={QuestionPage} /> 
             <Route path='/add' component={NewQuestion} />

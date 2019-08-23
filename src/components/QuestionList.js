@@ -33,11 +33,11 @@ class QuestionList extends Component {
 
   render () {
     const { showAnswered } = this.state
-    const answeredClass = showAnswered ? 'my-2 btn btn-selected' : 'my-2 btn btn-secondary';
-    const unansweredClass = !showAnswered ? 'my-2 btn btn-selected' : 'my-2 btn btn-secondary';
+    const answeredClass = showAnswered ? 'my-1 btn btn-selected' : 'my-1 btn btn-secondary';
+    const unansweredClass = !showAnswered ? 'my-1 btn btn-selected' : 'my-1 btn btn-secondary';
     return (
       <div className="center">
-        <div className="text-center">
+        <div className="mb-4 text-center">
           <div className="btn-group text-center" role="group" data-toggle="button">
             <button onClick={this.showUnAnsweredQuestions}
               type="button" className={unansweredClass}>
