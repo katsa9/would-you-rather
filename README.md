@@ -8,7 +8,7 @@ Would you rather:
 OR
 *Fight Voldemort* 
 
-The application also has a leaderboard where users are ranked according to the sum of questions they have asked as well as answered.
+The application also has a leaderboard where users are ranked according to the sum of the questions they have asked as well as answered. The application also mocks login functionality and reflects the state applicable to the selected user.
 
 ## Running the App
 To run the app, simply run: 
